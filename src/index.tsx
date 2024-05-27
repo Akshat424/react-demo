@@ -19,6 +19,10 @@ const router = createBrowserRouter([
     path: "select-product",
     element:  <SelectProduct />,
   },
+  {
+    path: "*",
+    element:  <div>404 Not Found</div>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(
