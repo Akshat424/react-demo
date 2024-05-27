@@ -7,17 +7,24 @@ import Login from "./pages/login";
 import { ChakraProvider } from "@chakra-ui/react";
 import { LayoutContainerStyled as Layout } from "./layout/layout.styles";
 import { customisedChakraTheme } from "./style/theme";
+import SelectProduct from "./pages/selectProduct";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
   },
+
+  {
+    path: "select-product",
+    element:  <SelectProduct />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <ChakraProvider resetCSS={true} theme={customisedChakraTheme}>
