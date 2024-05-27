@@ -3,6 +3,10 @@ import Header from "../components/header";
 import Card from "../components/Card";
 
 const SelectProduct = () => {
+  const handleContinueClick = () => {
+    alert("Continue clicked");
+  };
+
   return (
     <>
       <Header />
@@ -29,7 +33,9 @@ const SelectProduct = () => {
         </Flex>
 
         <Box pt="60px" textAlign="right">
-          <Button color="#ffff">Continue</Button>
+          <Button color="#ffff" onClick={handleContinueClick}>
+            Continue
+          </Button>
         </Box>
       </Box>
     </>
