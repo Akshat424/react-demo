@@ -10,9 +10,7 @@ interface ILayoutProps {
 const Layout: React.FC<PropsWithChildren<ILayoutProps>> = ({ children }) => {
   return (
     <LayoutContainerStyled>
-      <div className="main-content">
-        <main className="main-inner">{children}</main>
-      </div>
+        <main>{children}</main>
     </LayoutContainerStyled>
   );
 };
