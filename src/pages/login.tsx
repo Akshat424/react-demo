@@ -1,17 +1,36 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Image,
-  Input,
-  Link,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Input, Link, Text } from "@chakra-ui/react";
 
 import gradientSrc from "../assets/logos/gradient_cf.png";
 import cashfloLogo from "../assets/logos/cf_logo.png";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const router = useNavigate();
+
+  const handleEmailInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setPassword(event.target.value);
+  };
+
+  const handleLoginClick = () => {
+    if (email === "" || password === "") {
+      alert("Please fill in all fields");
+      return;
+    }
+    router("/select-product");
+  };
+
   return (
     <Flex height="100vh" width="100%">
       <Box
@@ -36,13 +55,21 @@ export default function Login() {
                 <Text fontSize="16px" fontWeight="600" pb="2px">
                   Email
                 </Text>
-                <Input />
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={handleEmailInputChange}
+                />
               </Box>
               <Box>
                 <Text fontSize="16px" fontWeight="600" pb="2px">
                   Password
                 </Text>
-                <Input type="password" />
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={handlePasswordInputChange}
+                />
                 <Box textAlign="right">
                   <Link
                     color="blue.500"
@@ -55,7 +82,11 @@ export default function Login() {
                 </Box>
               </Box>
               <Box>
-                <Button colorScheme="blue" width="100%">
+                <Button
+                  onClick={handleLoginClick}
+                  colorScheme="blue"
+                  width="100%"
+                >
                   Login
                 </Button>
               </Box>
