@@ -24,7 +24,7 @@ export default function Login() {
         <Box display="flex" justifyContent="center" pb="30px">
           <Image src={cashfloLogo} />
         </Box>
-        <Box width="70%">
+        <Box width="70%" maxWidth="510px">
           <Box border="1px solid #E0E0E0" borderRadius="24px">
             <Box borderBottom="1px solid #E0E0E0">
               <Text p="24px" fontWeight="600">
